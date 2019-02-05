@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', sans-serif !important;
 }
 
+.row {
+    box-sizing: border-box;
+}
+
 /* Grid lines */
 
 /* Extra small and small: 1 col per row */
