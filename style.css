@@ -1,0 +1,36 @@
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Grid lines */
+
+/* Extra small and small: 1 col per row */
+@media (max-width: 767.98px) {
+
+    .row.grid-lines > div[class^="col-"]:nth-last-child(n+2) {
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+
+/* Medium: 2 cols per row */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .row.grid-lines > div[class^="col-"]:nth-child(2n) {
+        border-left: 1px solid #dee2e6;
+    }
+
+    .row.grid-lines > div[class^="col-"]:nth-last-child(n+3) {
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+
+/* Large and extra large: 3 cols per row */
+@media (min-width: 992px) {
+    .row.grid-lines > div[class^="col-"]:nth-child(3n-1),
+    .row.grid-lines > div[class^="col-"]:nth-child(3n) {
+        border-left: 1px solid #dee2e6;
+    }
+
+    .row.grid-lines > div[class^="col-"]:nth-last-child(n+4) {
+        border-bottom: 1px solid #dee2e6;
+    }
+}
