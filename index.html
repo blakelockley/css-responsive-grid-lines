@@ -87,6 +87,55 @@
 
   </div>
 
+  <!-- Add dummy grid cells -->
+<script>
+  "use strict";
+
+  // Populate with amount of items in cell; e.g. from a template
+  const item_count = 6;
+
+  window.onload = function() {
+      const match_small  = window.matchMedia("(max-width: 767.98px)");
+      const match_medium = window.matchMedia("(min-width: 768px) and (max-width: 991.98px)");
+      const match_large  = window.matchMedia("(min-width: 992px)");
+
+      function did_match_large() {
+          $('.dummy-cell').remove();
+
+          const dummy_cells = 3 - (item_count % 3);
+          if (dummy_cells >= 3)
+              return;
+
+          for (var i = 0; i < dummy_cells; i++) {
+              $("#main-row").append('<div class="dummy-cell col-md-6 col-lg-4 border-left"><p> </p></div>');
+          }
+      };
+
+      function did_match_medium() {
+          $('.dummy-cell').remove();
+
+          const extra_cell = item_count % 2;
+          if (extra_cell) {
+              $("#main-row").append('<div class="dummy-cell col-md-6 col-md-4 border-left"><p> </p></div>');
+          }
+      };
+
+      function did_match_small() {
+          $('.dummy-cell').remove();
+      };
+
+      // At load
+      if (match_large.matches)  { did_match_large();  }
+      if (match_medium.matches) { did_match_medium(); }
+      if (match_small.matches)  { did_match_small();  }
+
+      // Responsive
+      match_large. addListener(did_match_large);
+      match_medium.addListener(did_match_medium);
+      match_small. addListener(did_match_small);
+  }
+</script>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
